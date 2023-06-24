@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciever</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script>
+        function _RecieveMessage(){
+            let name = document.getElementById("recieveNameInput").value;
+            RecieveMessage(name).then((response) => {
+                document.getElementById("recieveDataInput").value = response;
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div style="border: 1px solid black; padding: 20px;">
+        <input id="recieveNameInput" placeholder="Enter Name" style="font-size: 20px; padding: 5px; width: calc(100% - (10px + 4px)); margin-bottom: 5px;"><br>
+        <input id="recieveDataInput" style="font-size: 20px; padding: 5px; width: calc(100% - (10px + 4px)); margin-bottom: 5px;" disabled><br>
+        <button style="padding: 5px; font-size: 15px; cursor: pointer;" onclick="_RecieveMessage()">Get Data</button>
+    </div>
+</body>
+
+</html>

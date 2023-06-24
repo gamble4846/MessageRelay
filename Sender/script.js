@@ -27,13 +27,12 @@ function RecieveMessage(name) {
         try {
             localStorage.removeItem(name);
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('MiddleWareIFrame');
+            var oldIFrame = document.getElementById('iframe');
             if (oldIFrame) {
                 oldIFrame.remove();
             }
 
             var iframe = document.createElement('iframe');
-            iframe.id = "MiddleWareIFrame";
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
@@ -99,13 +98,12 @@ function SendMessage(name, data) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('MiddleWareIFrame');
+            var oldIFrame = document.getElementById('iframe');
             if (oldIFrame) {
                 oldIFrame.remove();
             }
 
             var iframe = document.createElement('iframe');
-            iframe.id = "MiddleWareIFrame";
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);

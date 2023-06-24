@@ -1,4 +1,4 @@
-let MiddleWareHost = "http://127.0.0.1:5500/index.html";
+let MiddleWareHost = "https://gamble4846.github.io/MessageRelay/MiddleWare/";
 const MaxCallCount = 10;
 
 window.addEventListener('message', event => {

@@ -3,9 +3,10 @@ const MaxCallCount = 10;
 
 window.addEventListener('message', event => {
     if (event.data && event.data.isMessageRelay && event.data.messageDirection == "Sending") {
+        console.log(event.data);
         let newData = {
             id: event.data.id,
-            data: event.data.data.data
+            data: event.data.data
         }
         localStorage.removeItem(event.data.name);
         localStorage.setItem(event.data.name, JSON.stringify(newData));

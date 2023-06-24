@@ -102,7 +102,7 @@ function SendMessage(name, data) {
         try {
             let CurrentId = GetNewUUID();
             let oldIFrames = document.getElementsByClassName('MiddleWareIFrame');
-            for (let index = 0; index < array.length; index++) {
+            for (let index = 0; index < oldIFrames.length; index++) {
                 const element = oldIFrames[index];
                 if(element)
                 element.remove();

@@ -1,16 +1,13 @@
-let MiddleWareHost = "https://gamble4846.github.io/MessageRelay/MiddleWare/";
+let MiddleWareHost = "http://127.0.0.1:5500/index.html";
 const MaxCallCount = 10;
 
 window.addEventListener('message', event => {
     if (event.data && event.data.isMessageRelay && event.data.messageDirection == "Sending") {
-        console.log(event.data);
         let newData = {
             id: event.data.id,
             data: event.data.data
         }
-        localStorage.removeItem(event.data.name);
         localStorage.setItem(event.data.name, JSON.stringify(newData));
-        console.log(localStorage.getItem(event.data.name));
     }
 
     if (event.data && event.data.isMessageRelay && event.data.messageDirection == "Recieving") {
@@ -28,7 +25,13 @@ window.addEventListener('message', event => {
 function RecieveMessage(name) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
+            localStorage.removeItem(name);
             let CurrentId = GetNewUUID();
+            var oldIFrame = document.getElementById('iframe');
+            if (oldIFrame) {
+                oldIFrame.remove();
+            }
+
             var iframe = document.createElement('iframe');
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
@@ -95,6 +98,11 @@ function SendMessage(name, data) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
             let CurrentId = GetNewUUID();
+            var oldIFrame = document.getElementById('iframe');
+            if (oldIFrame) {
+                oldIFrame.remove();
+            }
+
             var iframe = document.createElement('iframe');
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';

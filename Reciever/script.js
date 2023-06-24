@@ -5,7 +5,7 @@ window.addEventListener('message', event => {
     if (event.data && event.data.isMessageRelay && event.data.messageDirection == "Sending") {
         let newData = {
             id: event.data.id,
-            data: event.data.data
+            data: event.data.data.data
         }
         localStorage.removeItem(event.data.name);
         localStorage.setItem(event.data.name, JSON.stringify(newData));

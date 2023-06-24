@@ -27,13 +27,15 @@ function RecieveMessage(name) {
         try {
             localStorage.removeItem(name);
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('MiddleWareIFrame');
-            if (oldIFrame) {
-                oldIFrame.remove();
+            let oldIFrames = document.getElementsByClassName('MiddleWareIFrame');
+            for (let index = 0; index < array.length; index++) {
+                const element = oldIFrames[index];
+                if(element)
+                element.remove();
             }
-
+            
             var iframe = document.createElement('iframe');
-            iframe.id = "MiddleWareIFrame";
+            iframe.classList.add("MiddleWareIFrame");
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
@@ -99,13 +101,15 @@ function SendMessage(name, data) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('MiddleWareIFrame');
-            if (oldIFrame) {
-                oldIFrame.remove();
+            let oldIFrames = document.getElementsByClassName('MiddleWareIFrame');
+            for (let index = 0; index < array.length; index++) {
+                const element = oldIFrames[index];
+                if(element)
+                element.remove();
             }
 
             var iframe = document.createElement('iframe');
-            iframe.id = "MiddleWareIFrame";
+            iframe.classList.add("MiddleWareIFrame");
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);

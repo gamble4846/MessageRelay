@@ -26,8 +26,6 @@ window.addEventListener('message', event => {
 function RecieveMessage(name) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
-            debugger
-            localStorage.removeItem(name);
             let CurrentId = GetNewUUID();
             var iframe = document.createElement('iframe');
             iframe.src = MiddleWareHost;

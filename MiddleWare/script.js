@@ -7,6 +7,7 @@ window.addEventListener('message', event => {
             id: event.data.id,
             data: event.data.data
         }
+        localStorage.removeItem(event.data.name);
         localStorage.setItem(event.data.name, JSON.stringify(newData));
         console.log(localStorage.getItem(event.data.name));
     }

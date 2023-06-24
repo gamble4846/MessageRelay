@@ -1,4 +1,4 @@
-let MiddleWareHost = "http://127.0.0.1:5500/index.html";
+let MiddleWareHost = "https://gamble4846.github.io/MessageRelay/MiddleWare/";
 const MaxCallCount = 10;
 
 window.addEventListener('message', event => {
@@ -27,12 +27,13 @@ function RecieveMessage(name) {
         try {
             localStorage.removeItem(name);
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('iframe');
+            var oldIFrame = document.getElementById('MiddleWareIFrame');
             if (oldIFrame) {
                 oldIFrame.remove();
             }
 
             var iframe = document.createElement('iframe');
+            iframe.id = "MiddleWareIFrame";
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
@@ -98,12 +99,13 @@ function SendMessage(name, data) {
     var PromiseRTN = new Promise(function (resolve, reject) {
         try {
             let CurrentId = GetNewUUID();
-            var oldIFrame = document.getElementById('iframe');
+            var oldIFrame = document.getElementById('MiddleWareIFrame');
             if (oldIFrame) {
                 oldIFrame.remove();
             }
 
             var iframe = document.createElement('iframe');
+            iframe.id = "MiddleWareIFrame";
             iframe.src = MiddleWareHost;
             iframe.style.display = 'none';
             document.body.appendChild(iframe);
